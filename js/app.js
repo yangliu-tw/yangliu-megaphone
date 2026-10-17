@@ -1,16 +1,16 @@
-import * as audio from "./audio-engine.js";
+import * as audio from "./audio-engine.js?v=34ba87d9";
 
-import { bindPress } from "./press.js";
+import { bindPress } from "./press.js?v=34ba87d9";
 
-import { startRecording, isRecordingSupported } from "./recorder.js";
+import { startRecording, isRecordingSupported } from "./recorder.js?v=34ba87d9";
 
-import * as storage from "./storage.js";
+import * as storage from "./storage.js?v=34ba87d9";
 
-import { openNameDialog } from "./name-dialog.js";
+import { openNameDialog } from "./name-dialog.js?v=34ba87d9";
 
-import { initScene } from "./scene.js";
+import { initScene } from "./scene.js?v=34ba87d9";
 
-import { showToast, hideToast } from "./toast.js";
+import { showToast, hideToast } from "./toast.js?v=34ba87d9";
 
 const PLAY_MODE_KEY = "megaphone-play-mode";
 
@@ -47,7 +47,7 @@ async function init() {
   initLifecycle();
   let config;
   try {
-    config = await (await fetch("buttons.json")).json();
+    config = await (await fetch("buttons.json?v=34ba87d9")).json();
   } catch {
     showToast("無法載入按鈕設定，請重新開啟 App", {
       persistent: true

@@ -1,5 +1,5 @@
 const GULLS = [ {
-  src: "assets/images/seagull_3.png",
+  src: "assets/images/seagull_3.png?v=34ba87d9",
   width: 33,
   height: 17.33,
   box: {
@@ -9,7 +9,7 @@ const GULLS = [ {
     height: 39.67
   }
 }, {
-  src: "assets/images/seagull_1.png",
+  src: "assets/images/seagull_1.png?v=34ba87d9",
   width: 23.67,
   height: 23.33,
   box: {
@@ -19,7 +19,7 @@ const GULLS = [ {
     height: 39.67
   }
 }, {
-  src: "assets/images/seagull_2.png",
+  src: "assets/images/seagull_2.png?v=34ba87d9",
   width: 64,
   height: 33,
   box: {
@@ -29,7 +29,7 @@ const GULLS = [ {
     height: 48
   }
 }, {
-  src: "assets/images/seagull_4.png",
+  src: "assets/images/seagull_4.png?v=34ba87d9",
   width: 30,
   height: 17,
   box: {
