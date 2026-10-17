@@ -1,4 +1,4 @@
-const CACHE_VERSION = "a7b90eee";
+const CACHE_VERSION = "1f0ac787";
 
 const PRECACHE = [ "./", "assets/icons/apple-touch-icon.png", "assets/icons/favicon-32.png", "assets/icons/icon-192.png", "assets/icons/icon-512-maskable.png", "assets/icons/icon-512.png", "assets/images/bg.webp", "assets/images/future_soon.webp", "assets/images/seagull_1.png", "assets/images/seagull_2.png", "assets/images/seagull_3.png", "assets/images/seagull_4.png", "assets/images/sprite_sheet.webp", "buttons.json", "css/styles.css", "index.html", "js/app.js", "js/audio-engine.js", "js/install.js", "js/name-dialog.js", "js/press.js", "js/recorder.js", "js/scene.js", "js/storage.js", "js/toast.js", "manifest.webmanifest" ];
 
