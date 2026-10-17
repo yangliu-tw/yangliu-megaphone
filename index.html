@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>洋流應援大聲公</title>
+  <meta name="description" content="開源、免費的應援音效板：錄下自己的應援口號，連上藍牙喇叭，按下按鈕就能播放。">
+  <meta name="theme-color" content="#e66b20">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="大聲公">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/images/sprite_sheet.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <main class="app">
+    <div class="scene" aria-hidden="true">
+      <div class="scene-frames"></div>
+      <div class="gulls"></div>
+    </div>
+
+    <h1 class="banner">
+      <span class="visually-hidden">洋流應援大聲公：台北順起來，你的市長沈伯洋</span>
+    </h1>
+
+    <section class="controls" aria-label="應援錄音按鈕">
+      <div class="controls-grid">
+        <div class="sound-grid" id="sound-grid"></div>
+
+        <div class="record-row" id="record-row">
+          <div class="mode-switch">
+            <span class="mode-label mode-label-once">單次播放</span>
+            <button type="button" class="switch" id="mode-switch" role="switch" aria-checked="false" aria-label="循環播放">
+              <span class="switch-knob"></span>
+            </button>
+            <span class="mode-label mode-label-loop">循環播放</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="toast-text"></span>
+    <button type="button" class="toast-action" hidden></button>
+    <button type="button" class="toast-close" aria-label="關閉" hidden>×</button>
+  </div>
+
+  <dialog class="name-dialog" id="name-dialog" aria-labelledby="name-dialog-title">
+    <form class="name-form" method="dialog">
+      <h2 class="name-title" id="name-dialog-title"></h2>
+      <input class="name-input" type="text" name="name" maxlength="8" enterkeyhint="done" autocomplete="off" aria-describedby="name-count">
+      <p class="name-count" id="name-count">最多 8 個字（<span class="name-count-value">0</span> / 8）</p>
+      <div class="name-actions">
+        <button type="button" class="name-btn name-cancel">取消</button>
+        <button type="submit" class="name-btn name-ok">確定</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="slot-btn-template">
+    <button type="button" class="btn slot-btn">
+      <span class="btn-main">
+        <svg class="icon icon-mic" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="8.5" y="2.5" width="7" height="12" rx="3.5"/>
+          <path d="M5 11a7 7 0 0 0 14 0M12 18v3.5M8.5 21.5h7"/>
+        </svg>
+        <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 4.5v15l12.5-7.5z"/>
+        </svg>
+        <span class="label"></span>
+        <span class="countdown" aria-hidden="true"></span>
+      </span>
+      <svg class="icon icon-loop" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/>
+        <path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>
+      </svg>
+      <span class="progress" aria-hidden="true"><i></i></span>
+      <svg class="hold-ring" aria-hidden="true"><rect x="0" y="0" width="100%" height="100%" rx="27" ry="27" pathLength="100"/></svg>
+    </button>
+  </template>
+</body>
+</html>

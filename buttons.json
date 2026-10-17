@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "buttons": [
+    { "slot": "slot-1", "label": "台北順起來",     "maxSeconds": 5 },
+    { "slot": "slot-2", "label": "沈伯洋",         "maxSeconds": 5 },
+    { "slot": "slot-3", "label": "我們的市長",     "maxSeconds": 5 },
+    { "slot": "slot-4", "label": "凍蒜",           "maxSeconds": 5 },
+    { "slot": "slot-5", "label": "伯洋 伯洋 伯洋", "maxSeconds": 5 },
+    { "slot": "slot-6", "label": "凍蒜 凍蒜 凍蒜", "maxSeconds": 5 }
+  ],
+  "recordButton": { "slot": "slot-7", "label": "錄製30秒自定內容", "maxSeconds": 30 }
+}
