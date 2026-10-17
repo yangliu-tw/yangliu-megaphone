@@ -10,12 +10,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="洋流應援大聲公">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="manifest" href="manifest.webmanifest?v=c3174bab">
-  <link rel="icon" href="assets/icons/favicon-32.png?v=c3174bab" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=c3174bab">
-  <link rel="preload" href="assets/images/sprite_sheet.webp?v=c3174bab" as="image" type="image/webp">
-  <link rel="stylesheet" href="css/styles.css?v=c3174bab">
-  <script type="module" src="js/app.js?v=c3174bab"></script>
+  <link rel="manifest" href="manifest.webmanifest?v=22a35afe">
+  <link rel="icon" href="assets/icons/favicon-32.png?v=22a35afe" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=22a35afe">
+  <link rel="preload" href="assets/images/sprite_sheet.webp?v=22a35afe" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/styles.css?v=22a35afe">
+  <script type="module" src="js/app.js?v=22a35afe"></script>
 </head>
 <body>
   <main class="app">
@@ -62,6 +62,38 @@
       </div>
     </form>
   </dialog>
+
+  <dialog class="name-dialog guide-dialog" id="ios-guide" aria-labelledby="ios-guide-title">
+    <div class="name-form">
+      <h2 class="name-title" id="ios-guide-title">安裝到主畫面</h2>
+      <ol class="guide-steps">
+        <li>點 Safari 下方工具列的「分享」
+          <svg class="icon guide-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/>
+          </svg>
+        </li>
+        <li>往下滑，選「加入主畫面」</li>
+        <li>點右上角「新增」</li>
+      </ol>
+      <p class="guide-note">請先安裝，再從主畫面開啟 App 錄音。在 Safari 裡錄的音不會帶到主畫面 App。</p>
+      <p class="guide-note">官方網址：<span class="guide-url"></span></p>
+      <div class="name-actions guide-actions">
+        <button type="button" class="name-btn name-ok guide-close">知道了</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="inapp-notice" id="inapp-notice" hidden>
+    <div class="inapp-card">
+      <h2 class="name-title">請用 Safari 或 Chrome 開啟</h2>
+      <p class="guide-note">LINE、Facebook、Instagram 內建的瀏覽器無法安裝 App，也可能無法使用麥克風錄音。請複製網址，改用手機的 Safari（iPhone）或 Chrome（Android）開啟。</p>
+      <p class="inapp-url"></p>
+      <div class="inapp-actions">
+        <a class="name-btn name-ok inapp-open" hidden>用瀏覽器開啟</a>
+        <button type="button" class="name-btn name-cancel inapp-copy">複製網址</button>
+      </div>
+    </div>
+  </div>
 
   <template id="slot-btn-template">
     <button type="button" class="btn slot-btn">
