@@ -26,6 +26,8 @@
   --scene-sprite-width: 811.33px;
   --banner-height: 99px;
   --banner-ratio: 0.2539;
+
+  --banner-box: max(var(--banner-height), calc(100vw * var(--banner-ratio)));
   --controls-pad-top: 11px;
   --controls-pad-bottom: 16px;
   --controls-pad-min: 4px;
@@ -124,7 +126,7 @@ body {
   flex: none;
   margin: 0;
 
-  height: max(var(--banner-height), calc(100vw * var(--banner-ratio)));
+  height: var(--banner-box);
   background: url("../assets/images/future_soon.webp") center / cover no-repeat;
 }
 
@@ -479,7 +481,7 @@ body {
 .toast {
   position: fixed;
   left: 50%;
-  bottom: calc(env(safe-area-inset-bottom) + 16px);
+  top: calc(env(safe-area-inset-top) + var(--scene-height) + var(--banner-box) / 2);
   z-index: 10;
   display: flex;
   align-items: center;
@@ -494,18 +496,20 @@ body {
   font-weight: 700;
   line-height: 1.4;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
-  transform: translate(-50%, calc(100% + 40px));
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
   visibility: hidden;
-  transition: transform 0.25s ease, visibility 0s linear 0.25s;
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0s linear 0.2s;
 }
 
 .toast.is-visible {
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
   visibility: visible;
-  transition: transform 0.25s ease, visibility 0s;
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0s;
 }
 
-.toast-text { flex: 1 1 auto; }
+.toast-text { flex: 1 1 auto; text-align: center; }
 
 .toast-action,
 .toast-close {
