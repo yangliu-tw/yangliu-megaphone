@@ -10,6 +10,23 @@ const fallbacks = new Map;
 
 let current = null;
 
+let contextWasRunning = false;
+
+const interruptListeners = new Set;
+
+export function onInterrupted(listener) {
+  interruptListeners.add(listener);
+}
+
+function handleInterruption(source) {
+  stopAll();
+  for (const listener of interruptListeners) listener(source);
+}
+
+navigator.audioSession?.addEventListener?.("statechange", () => {
+  if (navigator.audioSession.state === "interrupted") handleInterruption("session");
+});
+
 function getContext() {
   if (!ctx) {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -19,8 +36,13 @@ function getContext() {
     output = ctx.createGain();
     output.connect(ctx.destination);
     ctx.addEventListener("statechange", () => {
-      if (ctx.state !== "running" && document.visibilityState === "visible") {
-        ctx.resume().catch(() => {});
+      if (ctx.state === "running") {
+        contextWasRunning = true;
+        return;
+      }
+      if (contextWasRunning) {
+        contextWasRunning = false;
+        handleInterruption("context");
       }
     });
   }

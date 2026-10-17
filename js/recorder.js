@@ -1,4 +1,4 @@
-import { setAudioSessionType } from "./audio-engine.js?v=22a35afe";
+import { setAudioSessionType } from "./audio-engine.js?v=a7b90eee";
 
 const MIME_TYPES = [ "audio/webm;codecs=opus", "audio/mp4" ];
 
@@ -28,6 +28,10 @@ export function startRecording({maxSeconds: maxSeconds, onStart: onStart}) {
     } catch (error) {
       setAudioSessionType("playback");
       throw error;
+    }
+    for (const track of stream.getAudioTracks()) {
+      track.addEventListener("ended", stop);
+      track.addEventListener("mute", stop);
     }
     const release = () => {
       for (const track of stream.getTracks()) track.stop();

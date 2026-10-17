@@ -1,18 +1,18 @@
-import * as audio from "./audio-engine.js?v=22a35afe";
+import * as audio from "./audio-engine.js?v=a7b90eee";
 
-import { bindPress } from "./press.js?v=22a35afe";
+import { bindPress } from "./press.js?v=a7b90eee";
 
-import { startRecording, isRecordingSupported } from "./recorder.js?v=22a35afe";
+import { startRecording, isRecordingSupported } from "./recorder.js?v=a7b90eee";
 
-import * as storage from "./storage.js?v=22a35afe";
+import * as storage from "./storage.js?v=a7b90eee";
 
-import { openNameDialog } from "./name-dialog.js?v=22a35afe";
+import { openNameDialog } from "./name-dialog.js?v=a7b90eee";
 
-import { initScene } from "./scene.js?v=22a35afe";
+import { initScene } from "./scene.js?v=a7b90eee";
 
-import { showToast, hideToast } from "./toast.js?v=22a35afe";
+import { showToast, hideToast } from "./toast.js?v=a7b90eee";
 
-import { initInstall, registerServiceWorker } from "./install.js?v=22a35afe";
+import { initInstall, registerServiceWorker } from "./install.js?v=a7b90eee";
 
 const PLAY_MODE_KEY = "megaphone-play-mode";
 
@@ -51,7 +51,7 @@ async function init() {
   initLifecycle();
   let config;
   try {
-    config = await (await fetch("buttons.json?v=22a35afe")).json();
+    config = await (await fetch("buttons.json?v=a7b90eee")).json();
   } catch {
     showToast("無法載入按鈕設定，請重新開啟 App", {
       persistent: true
@@ -387,6 +387,13 @@ async function requestWakeLock() {
 }
 
 function initLifecycle() {
+  audio.onInterrupted(source => {
+    const wasPlaying = Boolean(document.querySelector(".slot-btn.is-playing"));
+    setPlayingButton(null);
+    const stoppedRecording = source === "session" && recording;
+    if (stoppedRecording) recording.stop();
+    if ((wasPlaying || stoppedRecording) && !document.hidden) showToast("聲音被系統中斷（例如來電），已停止");
+  });
   document.addEventListener("visibilitychange", () => {
     document.documentElement.classList.toggle("page-hidden", document.hidden);
     if (document.hidden) {
