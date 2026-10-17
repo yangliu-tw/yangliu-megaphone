@@ -1,4 +1,4 @@
-import { showToast } from "./toast.js?v=1f0ac787";
+import { showToast } from "./toast.js?v=ad195e34";
 
 const OFFICIAL_URL = "https://yangliu-tw.github.io/yangliu-megaphone/";
 
@@ -120,7 +120,7 @@ export function registerServiceWorker() {
     reloading = true;
     location.reload();
   });
-  navigator.serviceWorker.register("sw.js?v=1f0ac787").then(registration => {
+  navigator.serviceWorker.register("sw.js?v=ad195e34").then(registration => {
     const watch = worker => {
       if (!worker || !navigator.serviceWorker.controller) return;
       if (worker.state === "installed") {
