@@ -1,6 +1,6 @@
 export const HOLD_START_MS = 500;
 
-export const RENAME_MS = 3e3;
+export const RENAME_MS = 1e3;
 
 export const RECORD_MS = 5e3;
 

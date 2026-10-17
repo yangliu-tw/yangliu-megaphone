@@ -53,7 +53,7 @@ html, body {
 }
 
 body {
-  background: var(--color-primary) url("../assets/images/bg.webp?v=34ba87d9") center / cover no-repeat;
+  background: var(--color-primary) url("../assets/images/bg.webp?v=c3174bab") center / cover no-repeat;
   color: var(--color-text);
   font-family: var(--font-family);
   -webkit-user-select: none;
@@ -98,7 +98,7 @@ body {
   width: var(--scene-sprite-width);
   height: var(--scene-height);
   transform: translateX(-50%);
-  background: url("../assets/images/sprite_sheet.webp?v=34ba87d9") 0 0 / var(--scene-sprite-width) calc(var(--scene-height) * 2) no-repeat;
+  background: url("../assets/images/sprite_sheet.webp?v=c3174bab") 0 0 / var(--scene-sprite-width) calc(var(--scene-height) * 2) no-repeat;
   animation: scene-frames calc(var(--scene-frame-duration) * 2) steps(2) infinite;
 }
 
@@ -127,7 +127,7 @@ body {
   margin: 0;
 
   height: var(--banner-box);
-  background: url("../assets/images/future_soon.webp?v=34ba87d9") center / cover no-repeat;
+  background: url("../assets/images/future_soon.webp?v=c3174bab") center / cover no-repeat;
 }
 
 .controls {
@@ -341,6 +341,7 @@ body {
   font-weight: 700;
   line-height: 1.25;
   text-align: center;
+  white-space: pre-line;
   opacity: 0.95;
 }
 

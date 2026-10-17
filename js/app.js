@@ -1,22 +1,22 @@
-import * as audio from "./audio-engine.js?v=34ba87d9";
+import * as audio from "./audio-engine.js?v=c3174bab";
 
-import { bindPress } from "./press.js?v=34ba87d9";
+import { bindPress } from "./press.js?v=c3174bab";
 
-import { startRecording, isRecordingSupported } from "./recorder.js?v=34ba87d9";
+import { startRecording, isRecordingSupported } from "./recorder.js?v=c3174bab";
 
-import * as storage from "./storage.js?v=34ba87d9";
+import * as storage from "./storage.js?v=c3174bab";
 
-import { openNameDialog } from "./name-dialog.js?v=34ba87d9";
+import { openNameDialog } from "./name-dialog.js?v=c3174bab";
 
-import { initScene } from "./scene.js?v=34ba87d9";
+import { initScene } from "./scene.js?v=c3174bab";
 
-import { showToast, hideToast } from "./toast.js?v=34ba87d9";
+import { showToast, hideToast } from "./toast.js?v=c3174bab";
 
 const PLAY_MODE_KEY = "megaphone-play-mode";
 
 const MIN_RECORDING_MS = 1e3;
 
-const RECORD_HINT = "【任一按鈕長按 5 秒開始錄音，再按一下停止；長按 3 秒放開可改名。錄音只存在手機中】";
+const RECORD_HINT = "【任一按鈕長按 5 秒開始錄音，再按一下停止；\n長按 1～5 秒放開可改名。錄音只存在手機中】";
 
 const soundGrid = document.getElementById("sound-grid");
 
@@ -47,7 +47,7 @@ async function init() {
   initLifecycle();
   let config;
   try {
-    config = await (await fetch("buttons.json?v=34ba87d9")).json();
+    config = await (await fetch("buttons.json?v=c3174bab")).json();
   } catch {
     showToast("無法載入按鈕設定，請重新開啟 App", {
       persistent: true
